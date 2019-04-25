@@ -1,13 +1,17 @@
-def hello_t(arr)
-  i = 0 
-  
-  while i < arr.length 
-    yield(arr[i])
-    i += 1 
+def hello_t(array)
+  if block_given?
+    i = 0
+ 
+    while i < array.length
+      yield(array[i])
+      i = i + 1
+    end
+ 
+    array
+  else
+    puts "Hey! No block was given!"
   end
-  arr
 end
-
 # call your method here!
 =begin
 hello_t(["Tim", "Tom", "Jim"]) do |name|
